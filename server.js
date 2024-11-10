@@ -22,7 +22,8 @@ app.use(cors())
 
 app.get('/api/product', async (req, res) => {
   let allProducts = await Product.find()
-  res.json(allProducts)
+  // res.json(allProducts)
+  res.json({'status': true})
 })
 
 app.post('/api/product', async (req, res) => {
