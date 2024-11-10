@@ -8,8 +8,8 @@ require('dotenv').config()
 
 //#region Mongo DB
 const mongoose = require('mongoose');
-//mongoose.connect(process.env.MONGODB_URI);
-mongoose.connect("mongodb+srv://rn1nhf:0drUxII9Xa7BQEz3@cluster0.22tlsbv.mongodb.net/food");
+mongoose.connect(process.env.MONGODB_URI);
+//mongoose.connect("mongodb+srv://rn1nhf:0drUxII9Xa7BQEz3@cluster0.22tlsbv.mongodb.net/food");
 
 const Product = mongoose.model('Product', {
   name: String,
