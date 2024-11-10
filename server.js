@@ -4,9 +4,11 @@ app.use(express.json());
 const port = 2000
 var cors = require('cors')
 
+require('dotenv').config()
+
 //#region Mongo DB
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://rn1nhf:0drUxII9Xa7BQEz3@cluster0.22tlsbv.mongodb.net/food');
+mongoose.connect(process.env.MONGODB_URI);
 
 const Product = mongoose.model('Product', {
   name: String,
@@ -30,10 +32,8 @@ app.post('/api/product', async (req, res) => {
   res.json({'status': true})
 })
   
-app.get('/', (req, res) => {
-    res.send('Less 22  - Mongo DB/Atlas')
-  })
+app.use('/', express.static('public'))
 
 app.listen(port, () => {
-  console.log(`Less 22 http://localhost:${port}`)
+  console.log(`Lesson 23 http://localhost:${port}`)
 })
